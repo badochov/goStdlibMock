@@ -1,6 +1,6 @@
 package bufio
 
-import "stdlibMock/io"
+import "github.com/badochov/stdlibMock/io"
 
 type I interface {
 	MaxScanTokenSize() int

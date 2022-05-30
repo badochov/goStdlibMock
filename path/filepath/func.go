@@ -1,8 +1,8 @@
 package filepath
 
 import (
+	"github.com/badochov/stdlibMock/io/fs"
 	"path/filepath"
-	"stdlibMock/io/fs"
 )
 
 func (Default) Abs(path string) (string, error) {

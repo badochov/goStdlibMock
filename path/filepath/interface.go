@@ -1,6 +1,6 @@
 package filepath
 
-import "stdlibMock/io/fs"
+import "github.com/badochov/stdlibMock/io/fs"
 
 type I interface {
 	Separator() string

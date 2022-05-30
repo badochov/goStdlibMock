@@ -1,8 +1,8 @@
 package os
 
 import (
+	"github.com/badochov/stdlibMock/io/fs"
 	"os"
-	"stdlibMock/io/fs"
 	"time"
 )
 

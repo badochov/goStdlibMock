@@ -1,9 +1,9 @@
 package os
 
 import (
+	"github.com/badochov/stdlibMock/io"
+	"github.com/badochov/stdlibMock/io/fs"
 	"os"
-	"stdlibMock/io"
-	"stdlibMock/io/fs"
 	"syscall"
 	"time"
 )

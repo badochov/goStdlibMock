@@ -2,7 +2,7 @@ package bufio
 
 import (
 	"bufio"
-	"stdlibMock/io"
+	"github.com/badochov/stdlibMock/io"
 )
 
 func (Default) ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error) {

@@ -112,13 +112,13 @@ func (Default) ErrNoDeadline() error {
 func (Default) ErrDeadlineExceeded() error {
 	return os.ErrDeadlineExceeded
 }
-func (Default) Stdin() *os.File {
+func (Default) Stdin() File {
 	return os.Stdin
 }
-func (Default) Stdout() *os.File {
+func (Default) Stdout() File {
 	return os.Stdout
 }
-func (Default) Stderr() *os.File {
+func (Default) Stderr() File {
 	return os.Stderr
 }
 func (Default) Args() []string {
