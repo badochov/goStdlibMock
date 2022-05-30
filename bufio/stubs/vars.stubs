@@ -1,0 +1,15 @@
+bufio
+
+MaxScanTokenSize int
+
+ErrInvalidUnreadByte error
+ErrInvalidUnreadRune error
+ErrBufferFull        error
+ErrNegativeCount     error
+
+ErrTooLong         error
+ErrNegativeAdvance error
+ErrAdvanceTooFar   error
+ErrBadReadCount    error
+
+ErrFinalToken error

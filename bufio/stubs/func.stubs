@@ -1,0 +1,12 @@
+bufio
+
+func ScanBytes(data []byte, atEOF bool) (advance int, token []byte, err error)
+func ScanLines(data []byte, atEOF bool) (advance int, token []byte, err error)
+func ScanRunes(data []byte, atEOF bool) (advance int, token []byte, err error)
+func ScanWords(data []byte, atEOF bool) (advance int, token []byte, err error)
+func NewReadWriter(r *Reader, w *Writer) *ReadWriter
+func NewReader(rd io.Reader) *Reader
+func NewReaderSize(rd io.Reader, size int) *Reader
+func NewScanner(r io.Reader) *Scanner
+func NewWriter(w io.Writer) *Writer
+func NewWriterSize(w io.Writer, size int) *Writer
