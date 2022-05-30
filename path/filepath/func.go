@@ -1,7 +1,7 @@
 package filepath
 
 import (
-	"github.com/badochov/stdlibMock/io/fs"
+	"github.com/badochov/goStdlibMock/io/fs"
 	"path/filepath"
 )
 

@@ -2,7 +2,7 @@ package bufio
 
 import (
 	"bufio"
-	"github.com/badochov/stdlibMock/io"
+	"github.com/badochov/goStdlibMock/io"
 )
 
 type ReadWriter struct {

@@ -1,3 +1,3 @@
-module github.com/badochov/stdlibMock
+module github.com/badochov/goStdlibMock
 
 go 1.18
