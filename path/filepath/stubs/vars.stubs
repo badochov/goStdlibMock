@@ -1,0 +1,8 @@
+filepath
+
+Separator string
+ListSeparator string
+
+ErrBadPattern error
+
+SkipDir error
