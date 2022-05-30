@@ -1,0 +1,13 @@
+io
+
+SeekStart int
+SeekCurrent int
+SeekEnd int
+
+EOF error
+ErrClosedPipe error
+ErrNoProgress error
+ErrShortBuffer error
+ErrShortWrite error
+ErrUnexpectedEOF error
+Discard Writer
