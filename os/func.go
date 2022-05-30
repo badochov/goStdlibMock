@@ -10,7 +10,7 @@ func (Default) Chdir(dir string) error {
 	return os.Chdir(dir)
 }
 func (Default) Chmod(name string, mode FileMode) error {
-	return os.Chmod(name, mode.ToFsFileMode())
+	return os.Chmod(name, mode)
 }
 func (Default) Chown(name string, uid, gid int) error {
 	return os.Chown(name, uid, gid)
@@ -97,10 +97,10 @@ func (Default) LookupEnv(key string) (string, bool) {
 	return os.LookupEnv(key)
 }
 func (Default) Mkdir(name string, perm FileMode) error {
-	return os.Mkdir(name, perm.ToFsFileMode())
+	return os.Mkdir(name, perm)
 }
 func (Default) MkdirAll(path string, perm FileMode) error {
-	return os.MkdirAll(path, perm.ToFsFileMode())
+	return os.MkdirAll(path, perm)
 }
 func (Default) MkdirTemp(dir, pattern string) (string, error) {
 	return os.MkdirTemp(dir, pattern)
@@ -108,9 +108,8 @@ func (Default) MkdirTemp(dir, pattern string) (string, error) {
 func (Default) NewSyscallError(syscall string, err error) error {
 	return os.NewSyscallError(syscall, err)
 }
-func (Default) Pipe() (r *File, w *File, err error) {
-	rF, wF, err := os.Pipe()
-	return toFile(rF), toFile(wF), err
+func (Default) Pipe() (r File, w File, err error) {
+	return os.Pipe()
 }
 func (Default) ReadFile(name string) ([]byte, error) {
 	return os.ReadFile(name)
@@ -155,26 +154,22 @@ func (Default) UserHomeDir() (string, error) {
 	return os.UserHomeDir()
 }
 func (Default) WriteFile(name string, data []byte, perm FileMode) error {
-	return os.WriteFile(name, data, perm.ToFsFileMode())
+	return os.WriteFile(name, data, perm)
 }
-func (Default) Create(name string) (*File, error) {
-	f, err := os.Create(name)
-	return toFile(f), err
+func (Default) Create(name string) (File, error) {
+	return os.Create(name)
 }
-func (Default) CreateTemp(dir, pattern string) (*File, error) {
-	f, err := os.CreateTemp(dir, pattern)
-	return toFile(f), err
+func (Default) CreateTemp(dir, pattern string) (File, error) {
+	return os.CreateTemp(dir, pattern)
 }
-func (Default) NewFile(fd uintptr, name string) *File {
-	return toFile(os.NewFile(fd, name))
+func (Default) NewFile(fd uintptr, name string) File {
+	return os.NewFile(fd, name)
 }
-func (Default) Open(name string) (*File, error) {
-	f, err := os.Open(name)
-	return toFile(f), err
+func (Default) Open(name string) (File, error) {
+	return os.Open(name)
 }
-func (Default) OpenFile(name string, flag int, perm FileMode) (*File, error) {
-	f, err := os.OpenFile(name, flag, perm.ToFsFileMode())
-	return toFile(f), err
+func (Default) OpenFile(name string, flag int, perm FileMode) (File, error) {
+	return os.OpenFile(name, flag, perm)
 }
 func (Default) Lstat(name string) (FileInfo, error) {
 	return os.Lstat(name)
@@ -182,11 +177,16 @@ func (Default) Lstat(name string) (FileInfo, error) {
 func (Default) Stat(name string) (FileInfo, error) {
 	return os.Stat(name)
 }
-func (Default) FindProcess(pid int) (*Process, error) {
+func (Default) FindProcess(pid int) (Process, error) {
 	p, err := os.FindProcess(pid)
 	return toProcess(p), err
 }
-func (Default) StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error) {
-	p, err := os.StartProcess(name, argv, fromProcAttr(attr))
+
+func (Default) StartProcess(name string, argv []string, attr *ProcAttr) (Process, error) {
+	p, err := os.StartProcess(name, argv, attr)
 	return toProcess(p), err
+}
+
+func (d Default) ReadDir(name string) ([]DirEntry, error) {
+	return os.ReadDir(name)
 }

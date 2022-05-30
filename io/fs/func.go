@@ -3,31 +3,26 @@ package fs
 import "io/fs"
 
 func (Default) Glob(fsys FS, pattern string) (matches []string, err error) {
-	matches, err = fs.Glob(fsys, pattern)
-	return matches, castError(err)
+	return fs.Glob(fsys, pattern)
 }
 func (Default) ReadFile(fsys FS, name string) ([]byte, error) {
-	c, err := fs.ReadFile(fsys, name)
-	return c, castError(err)
+	return fs.ReadFile(fsys, name)
 }
 func (Default) ValidPath(name string) bool {
 	return fs.ValidPath(name)
 }
 func (Default) WalkDir(fsys FS, root string, fn WalkDirFunc) error {
-	return castError(fs.WalkDir(fsys, root, fn))
+	return fs.WalkDir(fsys, root, fn)
 }
 func (Default) FileInfoToDirEntry(info FileInfo) DirEntry {
 	return fs.FileInfoToDirEntry(info)
 }
 func (Default) ReadDir(fsys FS, name string) ([]DirEntry, error) {
-	e, err := fs.ReadDir(fsys, name)
-	return e, castError(err)
+	return fs.ReadDir(fsys, name)
 }
 func (Default) Sub(fsys FS, dir string) (FS, error) {
-	f, err := fs.Sub(fsys, dir)
-	return f, castError(err)
+	return fs.Sub(fsys, dir)
 }
 func (Default) Stat(fsys FS, name string) (FileInfo, error) {
-	i, err := fs.Stat(fsys, name)
-	return i, castError(err)
+	return fs.Stat(fsys, name)
 }

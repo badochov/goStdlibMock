@@ -1,6 +1,8 @@
 package os
 
-import "os"
+import (
+	"os"
+)
 
 func (Default) O_RDONLY() int {
 	return os.O_RDONLY

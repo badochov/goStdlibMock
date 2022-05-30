@@ -57,3 +57,5 @@
 	Args []string
 
 	ErrProcessDone error
+	Interrupt Signal
+    Kill      Signal

@@ -61,7 +61,7 @@ func Lstat(name string) (FileInfo, error)
 func Stat(name string) (FileInfo, error)
 func FindProcess(pid int) (*Process, error)
 func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)
-
+func ReadDir(name string) ([]DirEntry, error)
 
 
 

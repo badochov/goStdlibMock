@@ -1,6 +1,8 @@
 package io
 
-import "io"
+import (
+	"io"
+)
 
 type Writer = io.Writer
 type Closer = io.Closer

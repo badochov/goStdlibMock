@@ -41,7 +41,7 @@ type Os interface {
 	MkdirAll(path string, perm FileMode) error
 	MkdirTemp(dir, pattern string) (string, error)
 	NewSyscallError(syscall string, err error) error
-	Pipe() (r *File, w *File, err error)
+	Pipe() (r File, w File, err error)
 	ReadFile(name string) ([]byte, error)
 	Readlink(name string) (string, error)
 	Remove(name string) error
@@ -57,15 +57,16 @@ type Os interface {
 	UserConfigDir() (string, error)
 	UserHomeDir() (string, error)
 	WriteFile(name string, data []byte, perm FileMode) error
-	Create(name string) (*File, error)
-	CreateTemp(dir, pattern string) (*File, error)
-	NewFile(fd uintptr, name string) *File
-	Open(name string) (*File, error)
-	OpenFile(name string, flag int, perm FileMode) (*File, error)
+	ReadDir(name string) ([]DirEntry, error)
+	Create(name string) (File, error)
+	CreateTemp(dir, pattern string) (File, error)
+	NewFile(fd uintptr, name string) File
+	Open(name string) (File, error)
+	OpenFile(name string, flag int, perm FileMode) (File, error)
 	Lstat(name string) (FileInfo, error)
 	Stat(name string) (FileInfo, error)
-	FindProcess(pid int) (*Process, error)
-	StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)
+	FindProcess(pid int) (Process, error)
+	StartProcess(name string, argv []string, attr *ProcAttr) (Process, error)
 	O_RDONLY() int
 	O_WRONLY() int
 	O_RDWR() int
