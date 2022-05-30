@@ -2,7 +2,7 @@ package bufio
 
 import "stdlibMock/io"
 
-type Bufio interface {
+type I interface {
 	MaxScanTokenSize() int
 	ErrInvalidUnreadByte() error
 	ErrInvalidUnreadRune() error

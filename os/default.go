@@ -2,6 +2,6 @@ package os
 
 type Default struct{}
 
-func New() Os {
+func New() I {
 	return Default{}
 }

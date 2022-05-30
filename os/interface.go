@@ -1,12 +1,11 @@
 package os
 
 import (
-	"io/fs"
-	"os"
+	"stdlibMock/io/fs"
 	"time"
 )
 
-type Os interface {
+type I interface {
 	Chdir(dir string) error
 	Chmod(name string, mode FileMode) error
 	Chown(name string, uid, gid int) error
@@ -103,9 +102,9 @@ type Os interface {
 	ErrClosed() error
 	ErrNoDeadline() error
 	ErrDeadlineExceeded() error
-	Stdin() *os.File
-	Stdout() *os.File
-	Stderr() *os.File
+	Stdin() File
+	Stdout() File
+	Stderr() File
 	Args() []string
 	ErrProcessDone() error
 }

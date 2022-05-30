@@ -2,6 +2,6 @@ package fs
 
 type Default struct{}
 
-func New() Fs {
+func New() I {
 	return Default{}
 }

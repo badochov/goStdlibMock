@@ -2,6 +2,6 @@ package io
 
 type Default struct{}
 
-func New() Io {
+func New() I {
 	return Default{}
 }

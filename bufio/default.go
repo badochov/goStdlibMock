@@ -2,6 +2,6 @@ package bufio
 
 type Default struct{}
 
-func New() Bufio {
+func New() I {
 	return Default{}
 }

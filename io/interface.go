@@ -1,6 +1,6 @@
 package io
 
-type Io interface {
+type I interface {
 	SeekStart() int
 	SeekCurrent() int
 	SeekEnd() int

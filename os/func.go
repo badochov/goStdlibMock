@@ -1,8 +1,8 @@
 package os
 
 import (
-	"io/fs"
 	"os"
+	"stdlibMock/io/fs"
 	"time"
 )
 

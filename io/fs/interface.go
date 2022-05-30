@@ -1,6 +1,6 @@
 package fs
 
-type Fs interface {
+type I interface {
 	ErrInvalid() error
 	ErrPermission() error
 	ErrExist() error
