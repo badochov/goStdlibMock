@@ -1,0 +1,59 @@
+	os
+	O_RDONLY int // open the file read-only.
+	O_WRONLY int // open the file write-only.
+	O_RDWR   int // open the file read-write.
+	// The remaining values may be or'ed in to control behavior.
+	O_APPEND int // append data to the file when writing.
+	O_CREATE int // create a new file if none exists.
+	O_EXCL   int // used with O_CREATE, file must not exist.
+	O_SYNC   int // open for synchronous I/O.
+	O_TRUNC  int // truncate regular writable file when opened.
+
+	SEEK_SET int // seek relative to the origin of the file
+	SEEK_CUR int // seek relative to the current offset
+	SEEK_END int // seek relative to the end
+
+	PathSeparator     string // OS-specific path separator
+	PathListSeparator string // OS-specific path list separator
+
+	// The single letters are the abbreviations
+	// used by the String method's formatting.
+	ModeDir        FileMode // d: is a directory
+	ModeAppend     FileMode // a: append-only
+	ModeExclusive  FileMode // l: exclusive use
+	ModeTemporary  FileMode // T: temporary file; Plan 9 only
+	ModeSymlink    FileMode // L: symbolic link
+	ModeDevice     FileMode // D: device file
+	ModeNamedPipe  FileMode // p: named pipe (FIFO)
+	ModeSocket     FileMode // S: Unix domain socket
+	ModeSetuid     FileMode // u: setuid
+	ModeSetgid     FileMode // g: setgid
+	ModeCharDevice FileMode // c: Unix character device, when ModeDevice is set
+	ModeSticky     FileMode // t: sticky
+	ModeIrregular  FileMode // ?: non-regular file; nothing else is known about this file
+
+	// Mask for the type bits. For regular files, none will be set.
+	ModeType FileMode
+
+	ModePerm FileMode // Unix permission bits, 0o777
+	DevNull  string
+
+	// ErrInvalid indicates an invalid argument.
+	// Methods on File will return this error when the receiver is nil.
+	ErrInvalid error // "invalid argument"
+
+	ErrPermission error // "permission denied"
+	ErrExist      error // "file already exists"
+	ErrNotExist   error // "file does not exist"
+	ErrClosed     error // "file already closed"
+
+	ErrNoDeadline       error // "file type does not support deadline"
+	ErrDeadlineExceeded error // "i/o timeout"
+
+	Stdin  *os.File
+	Stdout *os.File
+	Stderr *os.File
+
+	Args []string
+
+	ErrProcessDone error

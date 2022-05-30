@@ -1,0 +1,10 @@
+fs
+
+func Glob(fsys FS, pattern string) (matches []string, err error)
+func ReadFile(fsys FS, name string) ([]byte, error)
+func ValidPath(name string) bool
+func WalkDir(fsys FS, root string, fn WalkDirFunc) error
+func FileInfoToDirEntry(info FileInfo) DirEntry
+func ReadDir(fsys FS, name string) ([]DirEntry, error)
+func Sub(fsys FS, dir string) (FS, error)
+func Stat(fsys FS, name string) (FileInfo, error)

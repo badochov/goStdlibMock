@@ -1,0 +1,67 @@
+os
+
+func Chdir(dir string) error
+func Chmod(name string, mode FileMode) error
+func Chown(name string, uid, gid int) error
+func Chtimes(name string, atime time.Time, mtime time.Time) error
+func Clearenv()
+func DirFS(dir string) fs.FS
+func Environ() []string
+func Executable() (string, error)
+func Exit(code int)
+func Expand(s string, mapping func(string) string) string
+func ExpandEnv(s string) string
+func Getegid() int
+func Getenv(key string) string
+func Geteuid() int
+func Getgid() int
+func Getgroups() ([]int, error)
+func Getpagesize() int
+func Getpid() int
+func Getppid() int
+func Getuid() int
+func Getwd() (dir string, err error)
+func Hostname() (name string, err error)
+func IsExist(err error) bool
+func IsNotExist(err error) bool
+func IsPathSeparator(c uint8) bool
+func IsPermission(err error) bool
+func IsTimeout(err error) bool
+func Lchown(name string, uid, gid int) error
+func Link(oldname, newname string) error
+func LookupEnv(key string) (string, bool)
+func Mkdir(name string, perm FileMode) error
+func MkdirAll(path string, perm FileMode) error
+func MkdirTemp(dir, pattern string) (string, error)
+func NewSyscallError(syscall string, err error) error
+func Pipe() (r *File, w *File, err error)
+func ReadFile(name string) ([]byte, error)
+func Readlink(name string) (string, error)
+func Remove(name string) error
+func RemoveAll(path string) error
+func Rename(oldpath, newpath string) error
+func SameFile(fi1, fi2 FileInfo) bool
+func Setenv(key, value string) error
+func Symlink(oldname, newname string) error
+func TempDir() string
+func Truncate(name string, size int64) error
+func Unsetenv(key string) error
+func UserCacheDir() (string, error)
+func UserConfigDir() (string, error)
+func UserHomeDir() (string, error)
+func WriteFile(name string, data []byte, perm FileMode) error
+
+func Create(name string) (*File, error)
+func CreateTemp(dir, pattern string) (*File, error)
+func NewFile(fd uintptr, name string) *File
+func Open(name string) (*File, error)
+func OpenFile(name string, flag int, perm FileMode) (*File, error)
+
+func Lstat(name string) (FileInfo, error)
+func Stat(name string) (FileInfo, error)
+func FindProcess(pid int) (*Process, error)
+func StartProcess(name string, argv []string, attr *ProcAttr) (*Process, error)
+
+
+
+

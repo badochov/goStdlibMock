@@ -1,0 +1,8 @@
+fs
+
+ErrInvalid    error   // "invalid argument"
+ErrPermission error // "permission denied"
+ErrExist      error     // "file already exists"
+ErrNotExist   error   // "file does not exist"
+ErrClosed     error     // "file already closed"
+SkipDir       errors
